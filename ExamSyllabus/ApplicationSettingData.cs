@@ -51,7 +51,8 @@ namespace ExamSyllabus
         /// <returns>Returns the location where log file will be kept.</returns>
         private string GetLogLocation()
         {
-            string location = location = string.Format("{0}\\logfile.log", System.IO.Path.GetFullPath(Application.CommonAppDataPath));
+            string folder = System.Configuration.ConfigurationManager.AppSettings["location"].ToString();
+            string location = location = string.Format("{0}\\logfile.log", folder);
             return location;
         }
     }

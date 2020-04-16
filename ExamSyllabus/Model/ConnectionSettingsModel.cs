@@ -101,7 +101,7 @@ namespace ExamSyllabus.Model
         /// <returns>Returns location of the file.</returns>
         private string GetFileLocation()
         {
-            string folder = Path.GetFullPath(Application.CommonAppDataPath); 
+            string folder = System.Configuration.ConfigurationManager.AppSettings["location"].ToString();
             string fileLocation = string.Format("{0}\\{1}", folder, FILE_NAME);
             return fileLocation;
         }
