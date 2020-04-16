@@ -30,6 +30,7 @@ namespace ExamSyllabus
 
         private void RelationshipController_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Form1.ParentForm.RefreshData();
             Form1.ParentForm.Show();
         }
 

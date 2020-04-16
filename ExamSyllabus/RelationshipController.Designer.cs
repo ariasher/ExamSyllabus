@@ -63,6 +63,8 @@
             // 
             // cbSubjectList
             // 
+            this.cbSubjectList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbSubjectList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbSubjectList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSubjectList.FormattingEnabled = true;
             this.cbSubjectList.Location = new System.Drawing.Point(172, 98);
@@ -73,6 +75,8 @@
             // 
             // cbTopicList
             // 
+            this.cbTopicList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbTopicList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTopicList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTopicList.FormattingEnabled = true;
             this.cbTopicList.Location = new System.Drawing.Point(172, 144);

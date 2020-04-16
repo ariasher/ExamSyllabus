@@ -91,6 +91,7 @@ namespace ExamSyllabus
 
         private void ExamController_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Form1.ParentForm.RefreshData();
             Form1.ParentForm.Show();
         }
 

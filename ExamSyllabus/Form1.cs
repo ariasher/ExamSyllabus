@@ -22,11 +22,7 @@ namespace ExamSyllabus
             InitializeComponent();
             ParentForm = this;
             viewModelDataService = new VMDataService<ExamRelationViewModel>();
-
-            // Bind data
-            new ExamModel().Binder(cbExamList);
-            new SubjectModel().Binder(cbSubjectList);
-            LoadData();
+            RefreshData();
         }
 
         /// <summary>
@@ -170,6 +166,17 @@ namespace ExamSyllabus
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new SettingController().Show();
+        }
+
+        /// <summary>
+        /// This method is used to refresh data of the form.
+        /// </summary>
+        public void RefreshData()
+        {
+            // Bind data
+            new ExamModel().Binder(cbExamList);
+            new SubjectModel().Binder(cbSubjectList);
+            LoadData();
         }
     }
 }
