@@ -119,7 +119,7 @@
             // btnUpdateSubject
             // 
             this.btnUpdateSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateSubject.Location = new System.Drawing.Point(294, 208);
+            this.btnUpdateSubject.Location = new System.Drawing.Point(304, 208);
             this.btnUpdateSubject.Name = "btnUpdateSubject";
             this.btnUpdateSubject.Size = new System.Drawing.Size(75, 30);
             this.btnUpdateSubject.TabIndex = 4;
@@ -131,7 +131,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(213, 208);
+            this.btnClear.Location = new System.Drawing.Point(223, 208);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 30);
             this.btnClear.TabIndex = 3;
@@ -142,7 +142,7 @@
             // btnAddSubject
             // 
             this.btnAddSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSubject.Location = new System.Drawing.Point(132, 208);
+            this.btnAddSubject.Location = new System.Drawing.Point(142, 208);
             this.btnAddSubject.Name = "btnAddSubject";
             this.btnAddSubject.Size = new System.Drawing.Size(75, 30);
             this.btnAddSubject.TabIndex = 2;

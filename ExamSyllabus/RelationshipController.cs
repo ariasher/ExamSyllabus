@@ -59,11 +59,11 @@ namespace ExamSyllabus
         {
             if (noSubject)
             {
-                new TopicModel().Binder(cbTopicList, 0, true);
+                new TopicModel().Binder(lbTopicsList, 0, true);
             }
             else
             {
-                new TopicModel().Binder(cbTopicList);
+                new TopicModel().Binder(lbTopicsList);
             }
         }
 
@@ -85,11 +85,15 @@ namespace ExamSyllabus
 
         private void btnAddRelationship_Click(object sender, EventArgs e)
         {
-            var examsList = GetSelectedExamIdsList();
-            if (ValidateData(examsList.Count))
+            var topicsList = new TopicModel().GetSelectedIds(lbTopicsList);
+            var examsList = new ExamModel().GetSelectedIds(lbExamList);
+            if (ValidateData(topicsList.Count, examsList.Count))
             {
-                var topicId = Convert.ToInt32(cbTopicList.SelectedValue);
-                new ExamRelationModel().Save(topicId, examsList);
+                foreach (var topicId in topicsList)
+                {
+                    new ExamRelationModel().Save(topicId, examsList);
+                }
+               
                 ApplicationSettingData.Setting.Helper.ShowMessage("Done.", DialogTitles.Info);
                 ResetData();
             }
@@ -100,35 +104,14 @@ namespace ExamSyllabus
         }
 
         /// <summary>
-        /// This method is used to get a list of all selected exams.
-        /// </summary>
-        /// <returns></returns>
-        private List<int> GetSelectedExamIdsList()
-        {
-            List<int> indices = lbExamList.SelectedIndices.Cast<int>().ToList();
-            var items = lbExamList.Items.Cast<ExamModel>().ToArray();
-            List<int> exams = new List<int>();
-
-            foreach (var index in indices)
-            {
-                if (index != 0)
-                {
-                    int value = items[index].Id;
-                    exams.Add(value);
-                }
-            }
-
-            return exams;
-        }
-
-        /// <summary>
         /// This method is used to get validation result of the form.
         /// </summary>
+        /// <param name="topicsCount">Count of topics selected.</param>
         /// <param name="examsCount">Count of exams selected.</param>
-        private bool ValidateData(int examsCount)
+        private bool ValidateData(int topicsCount, int examsCount)
         {
             // Topic can only be selected when a subject is selected.
-            return cbTopicList.SelectedIndex != 0 && examsCount > 0;
+            return topicsCount > 0 && examsCount > 0;
         }
     }
 }

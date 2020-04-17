@@ -36,13 +36,13 @@
             this.TopicName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbExamList = new System.Windows.Forms.ListBox();
             this.btnUpdateTopic = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAddTopic = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbExamList = new System.Windows.Forms.ListBox();
             this.cbSubjectList = new System.Windows.Forms.ComboBox();
             this.tbTopicName = new System.Windows.Forms.TextBox();
             this.tabber.SuspendLayout();
@@ -114,13 +114,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbExamList);
             this.tabPage2.Controls.Add(this.btnUpdateTopic);
             this.tabPage2.Controls.Add(this.btnClear);
             this.tabPage2.Controls.Add(this.btnAddTopic);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.lbExamList);
             this.tabPage2.Controls.Add(this.cbSubjectList);
             this.tabPage2.Controls.Add(this.tbTopicName);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -131,10 +131,21 @@
             this.tabPage2.Text = "Add";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lbExamList
+            // 
+            this.lbExamList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExamList.FormattingEnabled = true;
+            this.lbExamList.ItemHeight = 16;
+            this.lbExamList.Location = new System.Drawing.Point(154, 174);
+            this.lbExamList.Name = "lbExamList";
+            this.lbExamList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbExamList.Size = new System.Drawing.Size(245, 84);
+            this.lbExamList.TabIndex = 10;
+            // 
             // btnUpdateTopic
             // 
             this.btnUpdateTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateTopic.Location = new System.Drawing.Point(283, 304);
+            this.btnUpdateTopic.Location = new System.Drawing.Point(316, 292);
             this.btnUpdateTopic.Name = "btnUpdateTopic";
             this.btnUpdateTopic.Size = new System.Drawing.Size(75, 30);
             this.btnUpdateTopic.TabIndex = 9;
@@ -146,7 +157,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(202, 304);
+            this.btnClear.Location = new System.Drawing.Point(235, 292);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 30);
             this.btnClear.TabIndex = 8;
@@ -157,7 +168,7 @@
             // btnAddTopic
             // 
             this.btnAddTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTopic.Location = new System.Drawing.Point(121, 304);
+            this.btnAddTopic.Location = new System.Drawing.Point(154, 292);
             this.btnAddTopic.Name = "btnAddTopic";
             this.btnAddTopic.Size = new System.Drawing.Size(75, 30);
             this.btnAddTopic.TabIndex = 7;
@@ -169,7 +180,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 210);
+            this.label3.Location = new System.Drawing.Point(26, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 17);
             this.label3.TabIndex = 6;
@@ -194,17 +205,6 @@
             this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Subject";
-            // 
-            // lbExamList
-            // 
-            this.lbExamList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbExamList.FormattingEnabled = true;
-            this.lbExamList.ItemHeight = 16;
-            this.lbExamList.Location = new System.Drawing.Point(154, 172);
-            this.lbExamList.Name = "lbExamList";
-            this.lbExamList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbExamList.Size = new System.Drawing.Size(245, 84);
-            this.lbExamList.TabIndex = 3;
             // 
             // cbSubjectList
             // 
@@ -260,12 +260,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox lbExamList;
         private System.Windows.Forms.ComboBox cbSubjectList;
         private System.Windows.Forms.TextBox tbTopicName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn TopicName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectName;
         private System.Windows.Forms.Button btnUpdateTopic;
+        private System.Windows.Forms.ListBox lbExamList;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace ExamSyllabus.Service
 {
@@ -131,7 +132,30 @@ namespace ExamSyllabus.Service
 
             var result = ApplicationSettingData.Setting.DataCommunicator.Read(query, parameters.ToArray());
 
-            return result.Rows.Cast<T>().FirstOrDefault();
+            return GetConvertedData(result);            
+        }
+
+        /// <summary>
+        /// This method is used to convert datatable to list of T, and ultimately to single object.
+        /// </summary>
+        /// <param name="result">Retrieved datatable.</param>
+        /// <returns>Returns single object of type T.</returns>
+        private T GetConvertedData(DataTable result)
+        {
+            var dataDictionary = result
+                .AsEnumerable()
+                .Select(row =>
+                    result
+                    .Columns
+                    .Cast<DataColumn>()
+                    .ToDictionary(column => column.ColumnName, column => row[column] as object)
+                );
+
+            var serializedData = JsonConvert.SerializeObject(dataDictionary);
+
+            List<T> deserializedObject = JsonConvert.DeserializeObject<List<T>>(serializedData);
+
+            return deserializedObject.FirstOrDefault();
         }
 
         /// <summary>

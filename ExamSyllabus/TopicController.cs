@@ -89,18 +89,19 @@ namespace ExamSyllabus
                 if (result)
                 {
                     ApplicationSettingData.Setting.Helper.ShowMessage("Topic data saved successfully.", DialogTitles.Success);
-                    ClearData();
                     LoadData();
 
-                    if (lbExamList.SelectedIndices.Count > 0)
+                    if (lbExamList.SelectedItems.Count > 0)
                     {
-                        List<int> exams = GetSelectedExamIdsList();
+                        List<int> exams = new ExamModel().GetSelectedIds(lbExamList);
                         if (exams.Count > 0)
                         {
                             var insertedTopic = topicDataService.GetRecord(DatabaseTable.Topic, data);
                             new ExamRelationModel().Save(insertedTopic.Id, exams);
                         }
                     }
+
+                    ClearData();
                 }
                 else
                 {
@@ -112,28 +113,6 @@ namespace ExamSyllabus
             {
                 ApplicationSettingData.Setting.Helper.ShowMessage("Please check topic name and/or selected subject.", DialogTitles.Error);
             }
-        }
-
-        /// <summary>
-        /// This method is used to get a list of all selected exams.
-        /// </summary>
-        /// <returns></returns>
-        private List<int> GetSelectedExamIdsList()
-        {
-            List<int> indices = lbExamList.SelectedIndices.Cast<int>().ToList();
-            var items = lbExamList.Items.Cast<ExamModel>().ToArray();
-            List<int> exams = new List<int>();
-
-            foreach (var index in indices)
-            {
-                if (index != 0)
-                {
-                    int value = items[index].Id;
-                    exams.Add(value);
-                }
-            }
-
-            return exams;
         }
 
         /// <summary>
