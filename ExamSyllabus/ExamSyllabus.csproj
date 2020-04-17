@@ -9,12 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ExamSyllabus</RootNamespace>
     <AssemblyName>ExamSyllabus</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\ExamSyllabus\</PublishUrl>
+    <PublishUrl>C:\Exam\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,8 +26,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Exam Syllabus</ProductName>
     <PublisherName>MK Apps</PublisherName>
-    <SuiteName>in.mkapps.examsyllabus</SuiteName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <SuiteName>in.mkapps.examsyl</SuiteName>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -235,8 +235,8 @@
   <ItemGroup>
     <FileAssociation Include=".exe">
       <Visible>False</Visible>
-      <Description>Executable File</Description>
-      <Progid>20001</Progid>
+      <Description>Exam Syllabus</Description>
+      <Progid>1002</Progid>
       <DefaultIcon>icon.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>

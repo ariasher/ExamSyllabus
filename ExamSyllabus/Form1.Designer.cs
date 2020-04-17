@@ -242,6 +242,7 @@ namespace ExamSyllabus
             this.dgvSyllabusDetails.ReadOnly = true;
             this.dgvSyllabusDetails.Size = new System.Drawing.Size(854, 460);
             this.dgvSyllabusDetails.TabIndex = 0;
+            this.dgvSyllabusDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvSyllabusDetails_DataBindingComplete);
             this.dgvSyllabusDetails.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvSyllabusDetails_KeyPress);
             // 
             // Id

@@ -16,11 +16,19 @@ namespace ExamSyllabus
     public partial class Form1 : Form
     {
         private IVMDataService<ExamRelationViewModel> viewModelDataService;
+        private bool DefaultLoad { get
+            {
+                return !(cbSubjectList.SelectedIndex > 0 || cbExamList.SelectedIndex > 0);
+            }
+        }
+        private int RowIndex { get; set; }
+
 
         public Form1()
         {
             InitializeComponent();
             ParentForm = this;
+            RowIndex = 0;
             viewModelDataService = new VMDataService<ExamRelationViewModel>();
             RefreshData();
         }
@@ -129,13 +137,12 @@ namespace ExamSyllabus
         {
             cbSubjectList.SelectedIndex = 0;
             cbExamList.SelectedIndex = 0;
-            LoadData();
+            LoadData(DefaultLoad);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            bool defaultLoad = !(cbSubjectList.SelectedIndex > 0 || cbExamList.SelectedIndex > 0);
-            LoadData(defaultLoad);
+            LoadData(DefaultLoad);
         }
 
         private void dgvSyllabusDetails_KeyPress(object sender, KeyPressEventArgs e)
@@ -153,7 +160,8 @@ namespace ExamSyllabus
                     int selectedRow = dgvSyllabusDetails.SelectedRows[0].Index;
                     int recordId = Convert.ToInt32(dgvSyllabusDetails.Rows[selectedRow].Cells[0].Value);
                     bool delResult = relationshipDataService.DeleteRecord(recordId, DatabaseTable.Relationship);
-                    LoadData();
+                    RowIndex = GetRowIndex(selectedRow);
+                    LoadData(DefaultLoad);
 
                     if (!delResult)
                     {
@@ -176,7 +184,25 @@ namespace ExamSyllabus
             // Bind data
             new ExamModel().Binder(cbExamList);
             new SubjectModel().Binder(cbSubjectList);
-            LoadData();
+            LoadData(DefaultLoad);
+        }
+
+        /// <summary>
+        /// This method is used to get updated focused row index.
+        /// </summary>
+        /// <param name="index">Current index.</param>
+        /// <returns>Returns new index.</returns>
+        private int GetRowIndex(int index)
+        {
+            if (index >= 1)
+                return --index;
+            return 0;
+        }
+
+        private void dgvSyllabusDetails_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvSyllabusDetails.FirstDisplayedScrollingRowIndex = RowIndex;
+            //RowIndex = 0;
         }
     }
 }
